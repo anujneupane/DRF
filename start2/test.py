@@ -30,8 +30,8 @@ post_data()
 
 def update():
   data ={
-    'id':6,
-    'name': 'pawan_GG',
+    'id':1,
+    'name': 'Devi_Mata',
     'city': 'butwal'
   }
 
