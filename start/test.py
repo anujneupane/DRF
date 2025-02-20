@@ -14,33 +14,6 @@ def get_data(id = None):
 
 get_data()
 
-def post_data():
-  data ={
-    'name': 'pawan',
-    'roll': 3,
-    'city': 'btwl'
-
-  }
-  json_data = json.dumps(data)
-  r = requests.post(url = url,data=json_data)
-  data = r.json()
-  print(data)
-
-post_data()
-
-def update():
-  data ={
-    'id':6,
-    'name': 'pawan_GG',
-    'city': 'butwal'
-  }
-
-  json_data = json.dumps(data)
-  r = requests.put(url = url,data=json_data)
-  data = r.json()
-  print(data)
-
-update()
 
 
 
