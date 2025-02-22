@@ -53,3 +53,14 @@ def stu(request):
             return HttpResponse(json_data,content_type='application/json')
         json_data= JSONRenderer().render(se.errors)
         return HttpResponse(json_data, content_type='application/json')
+    
+    if request.method == 'DELETE':
+        json_data = request.body
+        stream = io.BytesIO(json_data)
+        pythondata = JSONParser().parse(stream)
+        id = pythondata.get('id')
+        stu = Student.objects.get(id=id)
+        stu.delete()
+        msg = {'msg':'Data Deleted through Api'}
+        json_data= JSONRenderer().render(msg)
+        return HttpResponse(json_data, content_type='application/json')

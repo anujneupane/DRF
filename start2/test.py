@@ -26,7 +26,7 @@ def post_data():
   data = r.json()
   print(data)
 
-post_data()
+# post_data()
 
 def update():
   data ={
@@ -42,4 +42,13 @@ def update():
 
 update()
 
+def delete():
+  data ={
+    'id': 4 
+  }
+  json_data = json.dumps(data)
+  r = requests.delete(url = url,data=json_data)
+  data = r.json()
+  print(data)
 
+delete()  
