@@ -24,3 +24,11 @@ class serial(serializers.Serializer):
             raise serializers.ValidationError('No More Seat')
         return value
         
+
+    # Object Level validation    
+    def validate(self, data):
+        nm = data.get('name')
+        ct =  data.get('city')
+        if nm.lower()=='lala' and ct.lower()!='butwal':
+            raise serializers.ValidationError('Person must be of butwal')
+        return data
