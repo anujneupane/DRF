@@ -11,6 +11,8 @@ def get_data(id = None):
  r = requests.get(url = url,data=json_data)
  data = r.json()
  print(data)
+#  
+
 
 get_data(1)
 
