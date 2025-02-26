@@ -11,16 +11,14 @@ def get_data(id = None):
  r = requests.get(url = url,data=json_data)
  data = r.json()
  print(data)
-#  
-
-
-get_data(1)
+ 
+# get_data(1)
 
 def post_data():
   data ={
-    'name': 'pawan',
-    'roll': 3,
-    'city': 'btwl'
+    'name': 'pawanlala',
+    'roll': 111,
+    'city': 'nbsm'
 
   }
   json_data = json.dumps(data)
@@ -28,7 +26,7 @@ def post_data():
   data = r.json()
   print(data)
 
-# post_data()
+post_data()
 
 def update():
   data ={
@@ -42,7 +40,7 @@ def update():
   data = r.json()
   print(data)
 
-update()
+  # update()
 
 def delete():
   data ={
@@ -53,4 +51,4 @@ def delete():
   data = r.json()
   print(data)
 
-delete()  
+# delete()  
