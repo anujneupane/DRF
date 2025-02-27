@@ -2,8 +2,21 @@ from rest_framework import serializers
 from .models import Student
 
 
+# shorthand code using ModelSerializer
+
+# class serial(serializers.ModelSerializer):
+#     class Meta:
+#         models = Student
+#         fields = ['name','roll','city']
+
+#validator
+def start_with_r(value):
+    if value[0].lower()!='r':
+        raise serializers.ValidationError('Name should start with r')
+
 class serial(serializers.Serializer):
     name = serializers.CharField()
+    # name = serializers.CharField(validators =[start_with_r] )
     roll = serializers.IntegerField()
     city = serializers.CharField()
     
