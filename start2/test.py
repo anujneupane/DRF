@@ -17,10 +17,11 @@ def get_data(id = None):
 def post_data():
   data ={
     'name': 'lala',
-    'roll': 91,
+    'roll': 911,
     'city': 'nbsm'
 
   }
+  
   json_data = json.dumps(data)
   r = requests.post(url = url,data=json_data)
   data = r.json()
