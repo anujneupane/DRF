@@ -13,46 +13,46 @@ def get_data(id = None):
  data = r.json()
  print(data)
  
-get_data(1)
+# get_data()
 
 def post_data():
   data ={
-    'name': 'lala',
-    'roll': 911,
-    'city': 'nbsm'
+    'name': 'geet',
+    'roll': 11,
+    'city': 'balkumari'
 
   }
   
   headers = {'content-Type': 'application/json'}
-  
   json_data = json.dumps(data)
   r = requests.post(url = url, headers=headers,data=json_data)
   data = r.json()
   print(data)
 
-post_data()
+# post_data()
 
 def update():
   data ={
-    'id':1,
-    'name': 'Devi_Mata',
+    'id':4,
+    'name': 'Gita',
     'city': 'butwal'
   }
-
+  headers = {'content-Type': 'application/json'}
   json_data = json.dumps(data)
-  r = requests.put(url = url,data=json_data)
+  r = requests.put(url = url,headers=headers,data=json_data)
   data = r.json()
   print(data)
 
-  # update()
+#update()
 
 def delete():
-  data ={
-    'id': 4 
+  data = {
+    'id': 3
   }
+  headers = {'content-Type': 'application/json'}
   json_data = json.dumps(data)
-  r = requests.delete(url = url,data=json_data)
+  r = requests.delete(url = url,headers=headers,data=json_data)
   data = r.json()
   print(data)
-
-# delete()  
+  
+delete()  
