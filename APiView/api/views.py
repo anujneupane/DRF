@@ -55,7 +55,6 @@ def testing(request , pk=None):
       return Response({'msg':'data deleted of id '+str(id)})
 
 #class based API view
-
 '''class StudentAPI(APIView):
    def get(self,request,format=None,pk=None):
       id = pk #request.data.get('id')
