@@ -7,5 +7,6 @@ urlpatterns = [
     # path('crd/<int:pk>', views.StudentList.as_view()),
     # path('crd/', views.Studentcreate.as_view()),
     # path('crd/<int:pk>', views.Studentretrive.as_view()),
+    path('crd/<int:pk>', views.StudentDestroy.as_view()),
     path('crd/<int:pk>', views.StudentUpdate.as_view()),
 ]

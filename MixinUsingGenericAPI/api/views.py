@@ -30,3 +30,10 @@ class StudentUpdate(GenericAPIView,UpdateModelMixin):
 
     def put(self,request,*args,**kwargs):
         return self.update(request,*args,**kwargs)    
+    
+class StudentDestroy(GenericAPIView,DestroyModelMixin):
+    queryset = student.objects.all()
+    serializer_class = StudentSerializer
+
+    def delete(self,request,*args,**kwargs):
+        return self.destroy(request,*args,**kwargs)        
