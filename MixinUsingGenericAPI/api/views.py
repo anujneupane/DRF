@@ -7,15 +7,15 @@ class LC(ListCreateAPIView):
     queryset = student.objects.all()
     serializer_class = StudentSerializer
 
-class LC(RetrieveUpdateDestroyAPIView):
+class RUD(RetrieveUpdateDestroyAPIView):
     queryset = student.objects.all()
     serializer_class = StudentSerializer
 
-class LC(RetrieveUpdateAPIView):
+class RU(RetrieveUpdateAPIView):
     queryset = student.objects.all()
     serializer_class = StudentSerializer
 
-class LC(RetrieveDestroyAPIView):
+class RD(RetrieveDestroyAPIView):
     queryset = student.objects.all()
     serializer_class = StudentSerializer   
 
