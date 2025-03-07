@@ -3,7 +3,7 @@ from .serializer import StudentSerializer
 from rest_framework.generics import GenericAPIView
 from rest_framework.mixins import ListModelMixin,CreateModelMixin,RetrieveModelMixin,UpdateModelMixin,DestroyModelMixin  
 from rest_framework.generics import ListCreateAPIView,RetrieveUpdateAPIView,RetrieveDestroyAPIView,RetrieveUpdateDestroyAPIView
-class LC(ListCreateAPIView):
+'''class LC(ListCreateAPIView):
     queryset = student.objects.all()
     serializer_class = StudentSerializer
 
@@ -17,11 +17,11 @@ class RU(RetrieveUpdateAPIView):
 
 class RD(RetrieveDestroyAPIView):
     queryset = student.objects.all()
-    serializer_class = StudentSerializer   
+    serializer_class = StudentSerializer  ''' 
 
 
   #pk not required for list and create
-'''class StudentLC(GenericAPIView,ListModelMixin,CreateModelMixin):
+class StudentLC(GenericAPIView,ListModelMixin,CreateModelMixin):
     queryset = student.objects.all()
     serializer_class = StudentSerializer
 
@@ -32,7 +32,7 @@ class RD(RetrieveDestroyAPIView):
         return self.create(request,*args,**kwargs)
     
 # retrieve,update,destroy required pk
- class StudentRUD(GenericAPIView,RetrieveModelMixin,UpdateModelMixin,DestroyModelMixin):
+class StudentRUD(GenericAPIView,RetrieveModelMixin,UpdateModelMixin,DestroyModelMixin):
     queryset = student.objects.all()
     serializer_class = StudentSerializer
 
@@ -43,6 +43,6 @@ class RD(RetrieveDestroyAPIView):
         return self.update(request,*args,**kwargs)    
 
     def delete(self,request,*args,**kwargs):
-        return self.destroy(request,*args,**kwargs)        '''
+        return self.destroy(request,*args,**kwargs)        
 
 
