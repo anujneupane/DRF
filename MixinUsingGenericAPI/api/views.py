@@ -31,7 +31,7 @@ class StudentLC(GenericAPIView,ListModelMixin,CreateModelMixin):
     def post(self,request,*args,**kwargs):
         return self.create(request,*args,**kwargs)
     
-# retrieve,update,destroy required pk
+  # retrieve,update,destroy required pk
 class StudentRUD(GenericAPIView,RetrieveModelMixin,UpdateModelMixin,DestroyModelMixin):
     queryset = student.objects.all()
     serializer_class = StudentSerializer
