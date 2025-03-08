@@ -5,3 +5,4 @@ class StudentSerializer(serializers.ModelSerializer):
         model = student
         fields = ['id','name','roll','city']
         
+#gogo 
