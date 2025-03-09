@@ -1,7 +1,7 @@
 from .models import student
 from .serializer import StudentSerializer
 from rest_framework.generics import GenericAPIView
-from rest_framework.mixins import ListModelMixin,CreateModelMixin,RetrieveModelMixin,UpdateModelMixin,DestroyModelMixin  
+from rest_framework.mixins import ListModelMixin,CreateModelMixin,RetrieveModelMixin,UpdateModelMixin,DestroyModelMixin 
 from rest_framework.generics import ListCreateAPIView,RetrieveUpdateAPIView,RetrieveDestroyAPIView,RetrieveUpdateDestroyAPIView
 '''class LC(ListCreateAPIView):
     queryset = student.objects.all()
@@ -46,3 +46,4 @@ class StudentRUD(GenericAPIView,RetrieveModelMixin,UpdateModelMixin,DestroyModel
         return self.destroy(request,*args,**kwargs)        
 
 
+#gogo
