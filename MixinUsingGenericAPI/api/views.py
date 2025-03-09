@@ -13,7 +13,7 @@ class RUD(RetrieveUpdateDestroyAPIView):
 
 class RU(RetrieveUpdateAPIView):
     queryset = student.objects.all()
-    serializer_class = StudentSerializer
+    serializer_class = StudentSerializer hhh
 
 class RD(RetrieveDestroyAPIView):
     queryset = student.objects.all()
@@ -46,4 +46,4 @@ class StudentRUD(GenericAPIView,RetrieveModelMixin,UpdateModelMixin,DestroyModel
         return self.destroy(request,*args,**kwargs)        
 
 
-#gogo
+  #gogo
