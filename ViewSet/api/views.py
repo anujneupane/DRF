@@ -43,5 +43,11 @@ class userViewSets(viewsets.ViewSet):
             serial.save()
             return Response({'msg':'Partial Data Updated'})
         return Response(serial.errors,status = status.HTTP_400_BAD_REQUEST)
+    
+    def destroy(self,request,pk):
+        id = pk
+        user = user.objects.get(pk = id)
+        user.delete()
+        return Response({'msg': 'Data Deleted'})
 
 
