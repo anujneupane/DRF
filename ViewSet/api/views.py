@@ -51,3 +51,7 @@ class UserViewSet(viewsets.ViewSet):
         user = get_object_or_404(User, pk=pk)  # Fix model reference
         user.delete()
         return Response({'msg': 'Data Deleted'})
+
+class UserModelViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
