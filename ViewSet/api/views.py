@@ -40,6 +40,14 @@ class UserViewSet(viewsets.ViewSet):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     def destroy(self, request, pk=None):
+        print("***********Destroy**************")
+        print("Basename :",self.basename)
+        print("Action :",self.action)
+        print("Details :",self.detail)
+        print("Suffix :",self.suffix)
+        print("Name :",self.name)
+        print("Description :",self.description)
+
         user = get_object_or_404(User, pk=pk)  # Fix model reference
         user.delete()
         return Response({'msg': 'Data Deleted'})
