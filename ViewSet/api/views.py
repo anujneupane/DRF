@@ -4,7 +4,7 @@ from .serializer import UserSerializer
 from .models import User
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.authentication import BasicAuthentication
+from rest_framework.authentication import BasicAuthentication,SessionAuthentication
 from rest_framework.permissions import IsAuthenticated,AllowAny,IsAdminUser
 
 class UserViewSet(viewsets.ViewSet):
@@ -57,7 +57,8 @@ class UserViewSet(viewsets.ViewSet):
 class UserModelViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    authentication_classes = [BasicAuthentication]
+    # authentication_classes = [BasicAuthentication]
+    authentication_classes = [SessionAuthentication]
     # permission_classes = [IsAuthenticated]
     permission_classes = [IsAdminUser]  #only for is staff = true
 

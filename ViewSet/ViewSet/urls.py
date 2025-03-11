@@ -8,6 +8,7 @@ router = DefaultRouter() #creating default router object
 router.register('userapi',views.UserModelViewSet,basename ='user')
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include(router.urls))
+    path('',include(router.urls)),
+    path('auth/',include('rest_framework.urls',namespace='rest_framework')),
 ]
 
