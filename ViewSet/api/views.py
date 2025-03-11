@@ -4,6 +4,8 @@ from .serializer import UserSerializer
 from .models import User
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.authentication import BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 class UserViewSet(viewsets.ViewSet):
     def list(self, request):  
@@ -55,3 +57,5 @@ class UserViewSet(viewsets.ViewSet):
 class UserModelViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated]
