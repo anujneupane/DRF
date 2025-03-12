@@ -5,7 +5,7 @@ from .models import User
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.authentication import BasicAuthentication,SessionAuthentication
-from rest_framework.permissions import IsAuthenticated,AllowAny,IsAdminUser,IsAuthenticatedOrReadOnly,DjangoModelPermissions
+from rest_framework.permissions import IsAuthenticated,AllowAny,IsAdminUser,IsAuthenticatedOrReadOnly,DjangoModelPermissions,DjangoModelPermissionsOrAnonReadOnly,DjangoObjectPermissions
 
 class UserViewSet(viewsets.ViewSet):
     def list(self, request):  
@@ -62,6 +62,8 @@ class UserModelViewSet(viewsets.ModelViewSet):
     # permission_classes = [IsAuthenticated]
     # permission_classes = [IsAdminUser]  #only for is staff = true
     # permission_classes = [IsAuthenticatedOrReadOnly] 
-    permission_classes = [DjangoModelPermissions] 
+    # permission_classes = [DjangoModelPermissions] 
+    permission_classes = [DjangoModelPermissionsOrAnonReadOnly]   # unauthenticated user can read only provided
+    #permission_classes = [DjangoObjectPermissions] 
 
 
