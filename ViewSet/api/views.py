@@ -5,7 +5,7 @@ from .models import User
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.authentication import BasicAuthentication,SessionAuthentication
-from rest_framework.permissions import IsAuthenticated,AllowAny,IsAdminUser
+from rest_framework.permissions import IsAuthenticated,AllowAny,IsAdminUser,IsAuthenticatedOrReadOnly,DjangoModelPermissions
 
 class UserViewSet(viewsets.ViewSet):
     def list(self, request):  
@@ -60,6 +60,8 @@ class UserModelViewSet(viewsets.ModelViewSet):
     # authentication_classes = [BasicAuthentication]
     authentication_classes = [SessionAuthentication]
     # permission_classes = [IsAuthenticated]
-    permission_classes = [IsAdminUser]  #only for is staff = true
+    # permission_classes = [IsAdminUser]  #only for is staff = true
+    # permission_classes = [IsAuthenticatedOrReadOnly] 
+    permission_classes = [DjangoModelPermissions] 
 
 
