@@ -5,7 +5,7 @@ from .models import User
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.authentication import BasicAuthentication,SessionAuthentication
-from rest_framework.permissions import IsAuthenticated,AllowAny,IsAdminUser,IsAuthenticatedOrReadOnly,DjangoModelPermissions,DjangoModelPermissionsOrAnonReadOnly,DjangoObjectPermissions
+from rest_framework.permissions import IsAuthenticated,AllowAny,IsAdminUser,IsAuthenticatedOrReadOnly,DjangoModelPermissions,DjangoModelPermissionsOrAnonReadOnly,DjangoObjectPermissions,BasePermission
 
 class UserViewSet(viewsets.ViewSet):
     def list(self, request):  
@@ -54,6 +54,11 @@ class UserViewSet(viewsets.ViewSet):
         user.delete()
         return Response({'msg': 'Data Deleted'})
 
+class MyPerm(BasePermission):
+    def has_object_permission(self, request, view, obj):
+        if request.method == 'GET':
+            return True   
+
 class UserModelViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
@@ -65,5 +70,5 @@ class UserModelViewSet(viewsets.ModelViewSet):
     # permission_classes = [DjangoModelPermissions] 
     permission_classes = [DjangoModelPermissionsOrAnonReadOnly]   # unauthenticated user can read only provided
     #permission_classes = [DjangoObjectPermissions] 
-
+    permission_classes = [MyPerm] # custom permission
 
