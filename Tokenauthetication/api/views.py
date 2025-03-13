@@ -1,4 +1,19 @@
-from django.shortcuts import get_object_or_404
+from rest_framework import viewsets
+from .serializer import UserSerializer
+from .models import User
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated,IsAuthenticatedOrReadOnly
+
+class UserModelViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    authentication_classes = [TokenAuthentication]
+    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
+
+
+'''from django.shortcuts import get_object_or_404
 from rest_framework import viewsets
 from .serializer import UserSerializer
 from .models import User
@@ -70,5 +85,5 @@ class UserModelViewSet(viewsets.ModelViewSet):
     # permission_classes = [DjangoModelPermissions] 
     permission_classes = [DjangoModelPermissionsOrAnonReadOnly]   # unauthenticated user can read only provided
     #permission_classes = [DjangoObjectPermissions] 
-    permission_classes = [MyPerm] # custom permission
+    permission_classes = [MyPerm] # custom permission '''
 
