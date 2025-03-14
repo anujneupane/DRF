@@ -11,7 +11,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include(router.urls)),
     path('gettoken/',TokenObtainPairView.as_view(),name='token_obtain'),
-    path('token_refresh/',TokenRefreshView.as_view(),name='token_ref'),
-    path('token_verify/',TokenVerifyView.as_view(),name='token_veri'),
+    path('reftoken/',TokenRefreshView.as_view(),name='token_ref'),
+    path('verifytoken/',TokenVerifyView.as_view(),name='token_veri'),
 ]
 
