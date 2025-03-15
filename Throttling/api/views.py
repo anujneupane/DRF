@@ -4,6 +4,7 @@ from .models import User
 from rest_framework.authentication import SessionAuthentication
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.throttling import AnonRateThrottle, UserRateThrottle
+from api.throtling import BobRateThrottle 
 
 class UserModelViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -11,5 +12,6 @@ class UserModelViewSet(viewsets.ModelViewSet):
     authentication_classes = [SessionAuthentication]
     permission_classes = [IsAuthenticatedOrReadOnly] 
     throttle_classes = [AnonRateThrottle, UserRateThrottle]
+    # throttle_classes = [AnonRateThrottle, BobRateThrottle]
 
 

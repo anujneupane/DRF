@@ -119,5 +119,6 @@ REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_RATES':{
         'anon':'2/hour',
         'user':'5/halfhour',
+        'bob':'3/minute'
     }   
 }
