@@ -12,6 +12,6 @@ class UserModelViewSet(viewsets.ModelViewSet):
     authentication_classes = [SessionAuthentication]
     permission_classes = [IsAuthenticatedOrReadOnly] 
     throttle_classes = [AnonRateThrottle, UserRateThrottle]
-    # throttle_classes = [AnonRateThrottle, BobRateThrottle]
+    throttle_classes = [AnonRateThrottle, BobRateThrottle]
 
 
