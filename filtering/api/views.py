@@ -7,3 +7,6 @@ from .models import Record
 class RecoredApi(ListAPIView):
     serializer_class = RecordSerializer
     queryset = Record.objects.all()
+    def get_queryset(self):
+        user = self.request.user
+        return Record.objects.filter(passby = user)
