@@ -1,0 +1,63 @@
+{% extends 'start/base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-4" style='color:rgb(34, 28, 10);, padding: 3px;'>
+        <h4 class = 'text-center alert alert-info'> Add Student</h4>
+        <form action="" method="POST"> {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit"class="btn btn-success" value = 'Add'> 
+        </form>
+        <br>
+    
+        {% if messages %}
+        {% for message in messages %}
+       <h5 style='color:green'> {{message}} </h5>
+        {% endfor %}
+        {% endif %}
+    </div>
+
+     <div class="col-sm-7 offset-1">
+        <h4 class='text-center alert alert-info'>Show Student Information </h4>
+        {% if data %}
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">S.N</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Password</th>
+                <th scope="col">Action</th>
+
+            
+              </tr>
+            </thead>
+            <tbody>
+                {% for st in data%}
+              <tr>
+                <th scope="row">{{forloop.counter}}</th> 
+                <td>{{st.name}}</td>
+                <td>{{st.email}}</td>
+                <td>  <input type="password" value="********" readonly></td>
+                <td>
+             <a href="{% url 'upt' st.id %}" class ="btn btn-warning btn-sm"> Edit</a>
+
+             <form action="{% url 'dlt' st.id %}" method ='post' class ='d-inline'> {% csrf_token %}
+
+             <input type="submit" class="btn btn-danger" value="Delete">
+            
+            </form>
+             </td>
+            </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          
+
+        {% else %}
+        <h4 class =" text-center alert alert-warning"> No Data Found</h4>
+        {% endif %}
+
+     </div>
+</div>
+
+{% endblock %}

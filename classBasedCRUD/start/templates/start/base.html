@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+ {% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <link rel="stylesheet" href="{% static "start/css/bootstrap.css" %}">
+    <link rel="stylesheet" href="{% static "start/css/style.css" %}">
+</head>
+<body >
+    <div class = "container mt-5">
+        <h2 class = "text-center alert alert-danger">Class Based View CRUD Project</h2>
+        {% block content%} {% endblock %}
+    </div>
+
+   
+    <script src = "{% static "start/js/bootstrap.js" %}"></script>
+</body>
+</html>
